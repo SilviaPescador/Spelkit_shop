@@ -1,4 +1,4 @@
-import fakeShopApi from "@/api/fakeShopApi";
+import fakeShopApi from "@/api/spelkitShop";
 import { User } from "@/models/user";
 import { AxiosResponse } from "axios";
 import { ActionTree } from "vuex";

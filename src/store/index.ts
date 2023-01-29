@@ -1,14 +1,12 @@
 import { createStore } from 'vuex'
+import { User } from "@/models/user"
+import { Product } from "@/models/product"
+import { Category } from "@/models/category"
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+
+export interface IState {
+  authUser: User | null
+  greeting: string
+}
+
+export default createStore
