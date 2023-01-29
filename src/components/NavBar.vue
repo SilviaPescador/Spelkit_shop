@@ -1,0 +1,39 @@
+<template>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Find us...</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item" v-for="item in navLinks" :key="item.id">
+              <a class="nav-link" :href="item.href">{{ item.text }}</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </template>
+    
+    <script lang="ts">
+    import { ref } from 'vue';
+    
+    interface NavLink {
+      id: number;
+      text: string;
+      href: string;
+    }
+    
+    export default {
+      setup() {
+        const navLinks = ref<NavLink[]>([
+          { id: 1, text: 'Instagram', href: 'https://www.instagram.com/memes.programacion/' },
+          { id: 2, text: 'Facebook', href: 'https://www.facebook.com/MemesdeProgramacionhmo/' },
+          { id: 3, text: 'Twitter', href: '#' },
+        ]);
+    
+        return {
+          navLinks,
+        };
+      },
+    };
+    </script>

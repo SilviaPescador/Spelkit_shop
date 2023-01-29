@@ -1,6 +1,6 @@
 <template>
 	<div class="login">
-		<h1 class="title">Login in the page</h1>
+		<h2 class="title">Please, enter your credentials</h2>
 		<formaction class="form" @submit.prevent="login">
 			<label class="form-label" for="#email">Email:</label>
 			<input 
@@ -33,8 +33,8 @@
 		}),
 		methods: {
 			login() {
-				console.log(this.email)
-				console.log(this.password)
+				console.log('field with email')
+				console.log('field with password')
 			}
 		}
 	}

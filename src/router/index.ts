@@ -13,18 +13,25 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/shop',
+    name: 'shop',
     // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
+    // this generates a separate chunk (shop.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "products" */ '../views/ProductsView.vue')
   },
   {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: LoginView,
   },
+  {
+    path: '/user',
+    name: 'user',
+     // Lazy loading: no carga los archivos hasta que se visita este path
+     component: () =>
+     import(/* webpackChunkName: "aboutView" */ "../views/AccountView.vue"),
+  }
 
 ]
 
