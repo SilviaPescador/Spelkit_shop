@@ -13,9 +13,8 @@
 </template>
 
 <script lang="ts">
-import useproducts from "@/composables/useProducts";
+import useProducts from "@/composables/useProducts";
 import { defineComponent } from "vue";
-import productItem from "@/components/ProductItem.vue";
 import { Product } from "@/models/product";
 import { useRouter } from "vue-router";
 import ProductItem from "@/components/ProductItem.vue";
@@ -23,7 +22,7 @@ import ProductItem from "@/components/ProductItem.vue";
 export default defineComponent({
   name: "ProductsView",
   components: {
-    productItem,
+    ProductItem,
     
 },
   setup() {
