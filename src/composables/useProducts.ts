@@ -13,7 +13,7 @@ const useProducts = () => {
     // ACTIONS
     fetchProducts: () => store.dispatch("products/fetchProducts"),
     fetchProductById: (productId: number) =>
-      store.dispatch("products/fetchUserById", productId),
+      store.dispatch("products/fetchProductById", productId),
   };
 };
 

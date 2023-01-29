@@ -17,13 +17,12 @@ import useProducts from "@/composables/useProducts";
 import { defineComponent } from "vue";
 import { Product } from "@/models/product";
 import { useRouter } from "vue-router";
-import ProductItem from "@/components/ProductItem.vue";
+import ProductItem from "@/components/productItem.vue";
 
 export default defineComponent({
-  name: "ProductsView",
+  name: 'ProductsView',
   components: {
     ProductItem,
-    
 },
   setup() {
     const { products, isLoading, fetchProducts } = useProducts();

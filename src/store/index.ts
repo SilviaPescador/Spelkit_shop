@@ -1,11 +1,31 @@
-import { createStore } from 'vuex'
-import { Product } from "@/models/product"
-import { Category } from "@/models/category"
-
+import { createStore } from "vuex";
+import { Product } from "@/models/product";
+import {User } from "@/models/user"
+import productsModule from "./products";
 
 export interface IState {
-  authUser: Product | null
-  greeting: string
+	authUser: User | null;
+	greeting: string;
 }
 
-export default createStore
+export default createStore<IState> ({
+  state: {
+    authUser: null,
+    greeting: "Online"
+  },
+  getters: {
+    hello(state) {
+      return state.greeting
+    }
+  },
+  mutations: {
+    changeGreeting(state, hello: string){
+      state.greeting = hello
+    }
+  },
+  actions: {
+  },
+  modules: {
+    products: productsModule
+  }
+});
