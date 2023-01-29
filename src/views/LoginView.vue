@@ -1,6 +1,6 @@
 <template>
 	<div class="login">
-		<h2 class="title">Please, enter your credentials</h2>
+		<h2 class="title">Join us</h2>
 		<formaction class="form" @submit.prevent="login">
 			<label class="form-label" for="#email">Email:</label>
 			<input 
@@ -18,7 +18,7 @@
 			id="password" 
 			placeholder="Password"
 			>
-			<p v-if="error" class="error">Ooops, algo ha fallado. Email o contraseña incorrectos</p>
+			<p v-if="error" class="error">Ooops, something went wrong.</p>
 			<input class="form-submit" type="submit" value="Login">
 		</formaction>
 	</div>

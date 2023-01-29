@@ -1,13 +1,15 @@
 <template>
+<nav>
+  <router-link to="/">Home</router-link> |
+  <router-link to="/shop">Shop</router-link> |
+  <router-link to="/login">Login</router-link> |
+  <router-link to="/user">Your account</router-link> 
+</nav>
+<footer>
   <NavBar/>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/shop">Shop</router-link> |
-    <router-link to="/login">Login</router-link> |
-    <router-link to="/user">Your account</router-link> 
-
-  </nav>
-  <router-view/>
+</footer>
+ 
+<router-view/>
 </template>
 
 <script lang='ts'>
@@ -24,6 +26,7 @@ export default defineComponent({
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,4 +48,18 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+footer {
+  /* display: flex; */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-between;
+ 
+}
+
+img {
+  max-width: 15rem;
+}
+
 </style>
