@@ -19,6 +19,3 @@ const useProducts = () => {
 
 export default useProducts;
 
-
-
-// REVISAR, CREAR EL STORE DE PRODUCTS
