@@ -1,5 +1,4 @@
 import { createStore } from "vuex";
-import { Product } from "@/models/product";
 import {User } from "@/models/user"
 import productsModule from "./products";
 
