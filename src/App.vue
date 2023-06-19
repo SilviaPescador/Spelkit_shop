@@ -29,11 +29,12 @@ export default defineComponent({
 
 <style>
 #app {
-	font-family: "Roboto", sans-serif;
+	font-family: "monospace", monospace;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: #474647;
+	background-color: rgb(235, 230, 230);
 }
 
 #app-container {

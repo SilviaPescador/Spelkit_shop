@@ -1,7 +1,7 @@
 <template>
 	<div class="home">
 		<div v-if="isLoading">Cargando...</div>
-		<div class="product-list" v-else>
+		<div class="product-list d-flex flex-wrap justify-content-center" v-else>
 			<ProductItem
 				v-for="product in fetchedProducts"
 				:key="product.id"
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import useProducts from "@/composables/useProducts";
-import { defineComponent } from "vue";
+import { defineComponent, onMounted, computed } from "vue";
 import { Product } from "@/models/product";
 import { useRouter } from "vue-router";
 import ProductItem from "@/components/ProductItem.vue";
@@ -28,8 +28,11 @@ export default defineComponent({
 		const { products, isLoading, fetchProducts } = useProducts();
 		const router = useRouter();
 
-		fetchProducts();
-		const fetchedProducts = products.value.products;
+		onMounted(() => {
+			fetchProducts();
+		})
+
+		const fetchedProducts = computed(() => products.value.products);
 
 		return {
 			fetchedProducts,
@@ -43,10 +46,6 @@ export default defineComponent({
 
 <style scoped>
 .product-list {
-	display: flex;
-	flex-flow: row wrap;
-	width: 100%;
 	gap: 1rem 1rem;
-	justify-content: center;
 }
 </style>

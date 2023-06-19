@@ -1,7 +1,7 @@
 <template>
 	<div v-if="!isLoading">
 		<div class="d-flex align-items-center flex-column">
-			<img :src="product.thumbnail" class="w-25 img-thumbnail rounded rounded-circle shadow m-2" />
+			<img :src="product.thumbnail" class="w-25 img-thumbnail rounded rounded-5 shadow m-2" />
 			<h1>Detalles de {{ product.title }}</h1>
 		</div>
             <article class="card shadow p-3 text-start mt-3">
@@ -14,11 +14,11 @@
                   <h5>Rating: {{ product.rating }}</h5>
                   <h5>Actual discount: {{ product.discountPercentage }} %</h5>
                   <!-- <h2>Role: {{ productRole }}</h2> -->
-                  <div class="product-images card shadow p-3 text-start mt-3">
-                        <img :src="product.images[0]" alt="" />
-                        <img :src="product.images[1]" alt="" />
-                        <img :src="product.images[2]" alt="" />
-                  </div>
+			<div class="product-images card shadow p-3 mt-3" >
+				<div v-for="image,index in product.images" :key="index" class="d-flex justify-content-center align-items-center">
+					<img :src="image" alt="" class="rounded"/>
+				</div>
+			</div>
             </article>
 	</div>
 	<div v-else>Cargando...</div>
