@@ -4,7 +4,6 @@ import { IProductsState } from "./state";
 
 const getters: GetterTree<IProductsState, IState> = {
   getProducts(state) {
-    console.log(state.products)
     return state.products;
   },
   getIsLoading(state) {
