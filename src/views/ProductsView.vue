@@ -3,7 +3,7 @@
     <div v-if="isLoading">Cargando...</div>
     <div class="product-list" v-else>
       <ProductItem
-        v-for="product in products"
+        v-for="product in fetchedProducts"
         :key="product.id"
         :product="product"
         @goDetail="goDetail"
@@ -17,7 +17,7 @@ import useProducts from "@/composables/useProducts";
 import { defineComponent } from "vue";
 import { Product } from "@/models/product";
 import { useRouter } from "vue-router";
-import ProductItem from "@/components/productItem.vue";
+import ProductItem from "@/components/ProductItem.vue";
 
 export default defineComponent({
   name: 'ProductsView',
@@ -27,11 +27,13 @@ export default defineComponent({
   setup() {
     const { products, isLoading, fetchProducts } = useProducts();
     const router = useRouter();
-
-    fetchProducts();
+    
+    
+    fetchProducts()
+    const fetchedProducts = products.value.products
 
     return {
-      products,
+      fetchedProducts,
       isLoading,
       goDetail: (product: Product) =>
         router.push({ name: "detail", params: { id: product.id } }),
@@ -46,5 +48,6 @@ export default defineComponent({
   flex-flow: row wrap;
   width: 100%;
   gap: 1rem 1rem;
+  justify-content: center;
 }
 </style>

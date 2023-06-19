@@ -18,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
     // route level code-splitting
     // this generates a separate chunk (shop.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "products" */ '../views/ProductItems.vue')
+    component: () => import(/* webpackChunkName: "products" */ '../views/ProductsView.vue')
   },
   {
     path: '/login',
@@ -43,10 +43,10 @@ const routes: Array<RouteRecordRaw> = [
       return isNaN(id) ? { id: null, userRole } : { id, userRole };
     },
   },
-  {
-    path: "/:pathMatch(.*)",
-    component: import(/*webpackChunkName: notFound*/ "../views/NotFound.vue"),
-  },
+  // {
+  //   path: "/:pathMatch(.*)",
+  //   component: import(/*webpackChunkName: notFound*/ "../views/NotFound.vue"),
+  // },
 ]
 
 const router = createRouter({
