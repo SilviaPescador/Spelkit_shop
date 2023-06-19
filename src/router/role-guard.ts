@@ -1,17 +1,21 @@
 import { RouteLocation } from "vue-router";
+import Swal from 'sweetalert2'
 
 const haveRoleGuard = (to: RouteLocation, from: RouteLocation, next: any) => {
-  console.log(to, from, next);
+	console.log(to, from, next);
+	// const userRole = localStorage.getItem("userRole");
+	const token = localStorage.getItem("token");
 
-  const userRole = localStorage.getItem("userRole");
-
-  if (userRole === "Admin") {
-    // queremos navegar!
-    next();
-  } else {
-    alert("You are not alowed to be here ;)");
-    next({ name: "home" });
-  }
+	if (token) {
+		next();
+	} else {
+		Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'We don\'t recognize you, please login!',
+    })
+		next({ name: "login" });
+	}
 };
 
 export default haveRoleGuard;

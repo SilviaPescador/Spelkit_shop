@@ -9,7 +9,7 @@
 				type="email"
 				id="email"
 				required
-				placeholder="Email"
+				placeholder="eve.holt@reqres.in"
 			/>
 			<label class="form-label" for="#password">Password:</label>
 			<input
@@ -17,17 +17,22 @@
 				class="form-input"
 				type="password"
 				id="password"
-				placeholder="Password"
+				placeholder="pistol"
 			/>
 			<p v-if="error" class="error">Ooops, something went wrong.</p>
 			<input class="form-submit" type="submit" value="Login" />
 		</form>
+
+		<p class="mt-0">
+			Don't have an account? <router-link to="/register">Register</router-link>
+		</p>
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import AuthenticationService from "@/services/AuthenticationServicee";
+import AuthenticationService from "@/services/AuthenticationService";
+import Swal from "sweetalert2";
 
 export default defineComponent({
 	data: () => ({
@@ -40,9 +45,16 @@ export default defineComponent({
 			try {
 				const authService = new AuthenticationService();
 				const response = await authService.login(this.email, this.password);
-
+				console.log(response);
 				if (response.data.token) {
-					// Autenticación exitosa, redirigir al usuario
+					await Swal.fire({
+						position: "top-end",
+						icon: "success",
+						title: "Welcome!",
+						showConfirmButton: false,
+						timer: 1500,
+					});
+					localStorage.setItem("token", response.data.token);
 					this.$router.push("/");
 				} else {
 					// Mostrar un mensaje de error
@@ -50,8 +62,12 @@ export default defineComponent({
 					this.error = true;
 				}
 			} catch (error) {
-				// Manejar el error (por ejemplo, mostrar un mensaje de error)
-				console.log("Ooops, something went wrong.");
+				console.log(error);
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Something went wrong!",
+				});
 				this.error = true;
 			}
 		},

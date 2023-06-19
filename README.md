@@ -1,5 +1,11 @@
 # spelkit_shop
 
+_ACTUALIZACIÓN!_ 
+- Actualmente se ha redefinido el código y los estilos, además de modificar la API de cara a poder mostrar la relación de productos de la tienda.
+- El proceso de Registro y Login es forzado con la api `Regres.in`
+
+
+
 Bienvenid@ a la primera versión de Spelkit Shop, 
 una aplicación web creada por la alumna Silvia Pescador
 para el módulo Vue-Typescript del Bootcamp 'Mujeres in Tech' | Keepcoding-Glovo.

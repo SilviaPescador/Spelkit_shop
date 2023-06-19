@@ -1,71 +1,87 @@
 <template>
-      <div class="register">
-        <h2 class="title">Register</h2>
-        <form class="form" @submit.prevent="register">
-          <label class="form-label" for="#email">Email:</label>
-          <input
-            v-model="email"
-            class="form-input"
-            type="email"
-            id="email"
-            required
-            placeholder="Email"
-          />
-          <label class="form-label" for="#password">Password:</label>
-          <input
-            v-model="password"
-            class="form-input"
-            type="password"
-            id="password"
-            placeholder="Password"
-          />
-          <p v-if="error" class="error">Ooops, something went wrong.</p>
-          <input class="form-submit" type="submit" value="Register" />
-        </form>
-      </div>
-    </template>
-    
-    <script lang="ts">
-    import { defineComponent } from "vue";
-    import RegisterService from "@/services/RegisterService";
-    
-    export default defineComponent({
-  data() {
-    return {
-      email: "",
-      password: "",
-      error: false,
-    };
-  },
-  methods: {
-    async register() {
-      try {
-        const registerService = new RegisterService();
-        const response = await registerService.register(this.email, this.password);
+	<div class="register">
+		<h2 class="title">Register</h2>
+		<form class="form" @submit.prevent="register">
+			<label class="form-label" for="#email">Email:</label>
+			<input
+				v-model="email"
+				class="form-input"
+				type="email"
+				id="email"
+				required
+				placeholder="eve.holt@reqres.in"
+			/>
+			<label class="form-label" for="#password">Password:</label>
+			<input
+				v-model="password"
+				class="form-input"
+				type="password"
+				id="password"
+				placeholder="pistol"
+			/>
+			<p v-if="error" class="error">Ooops, something went wrong.</p>
+			<input class="form-submit" type="submit" value="Register" />
+		</form>
+	</div>
+</template>
 
-        if (response.data.id && response.data.token) {
-          // Registro exitoso, redirigir al usuario
-          this.$router.push("/");
-        } else {
-          // Mostrar un mensaje de error
-          console.log("Ooops, there was an error in the registration process.");
-          this.error = true;
-        }
-      } catch (error) {
-        // Manejar el error (por ejemplo, mostrar un mensaje de error)
-        console.log("Ooops, something went wrong.");
-        this.error = true;
-      }
-    },
-  },
+<script lang="ts">
+import { defineComponent } from "vue";
+import RegisterService from "@/services/RegisterService";
+import Swal from "sweetalert2";
+
+export default defineComponent({
+	data() {
+		return {
+			email: "",
+			password: "",
+			error: false,
+		};
+	},
+	methods: {
+		async register() {
+			try {
+				const registerService = new RegisterService();
+				const response = await registerService.register(
+					this.email,
+					this.password
+				);
+
+				if (response.data.id && response.data.token) {
+					await Swal.fire({
+						position: "top-end",
+						icon: "success",
+						title: "Your registration has been saved",
+						showConfirmButton: false,
+						timer: 1500,
+					});
+					this.$router.push("/");
+				} else {
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "Something went wrong!",
+					});
+					this.error = true;
+				}
+			} catch (error) {
+        Swal.fire({
+          icon: "error",
+          text: "Something went wrong",  
+        })
+				console.log("Ooops, something went wrong.");
+				this.error = true;
+			}
+		},
+	},
 });
 </script>
 
 <style scoped>
 .register {
-      padding: 2rem;
+	padding: 2rem;
 }
-  .title {
+.title {
 	text-align: center;
 }
 .form {

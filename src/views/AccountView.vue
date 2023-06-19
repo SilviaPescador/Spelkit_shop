@@ -9,14 +9,17 @@
 
 <script lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default {
   setup() {
     const name = ref('User name');
     const email = ref('username@example.com');
+    const router = useRouter();
 
     const logout = () => {
-      // Logout logic
+      localStorage.removeItem('token');
+      router.push('/');
     };
 
     onMounted(() => {
