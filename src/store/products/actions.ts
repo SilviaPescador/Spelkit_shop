@@ -20,11 +20,10 @@ const actions: ActionTree<IProductsState, IState> = {
 		} catch (error) {
 			console.error(error);
 			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: 'Something went wrong!: ' + error,
-				footer: '<a href="">Why do I have this issue?</a>'
-			    })
+				icon: "error",
+				title: "Oops...",
+				text: "Something went wrong!: " + error,
+			});
 		} finally {
 			// usamos la mutación para poner isLoading = false
 			commit("setIsLoading", false);
@@ -40,15 +39,13 @@ const actions: ActionTree<IProductsState, IState> = {
 			>(`/products/${productId}`);
 			// usamos la mutación para volcar los datos obtenidos en la variable del state users
 			commit("setSelectedProduct", data);
-		}
-		catch (error) {
+		} catch (error) {
 			console.error(error);
 			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: 'Something went wrong!: ' + error,
-				footer: '<a href="">Why do I have this issue?</a>'
-			    })
+				icon: "error",
+				title: "Oops...",
+				text: "Something went wrong!: " + error,
+			});
 		} finally {
 			// usamos la mutación para poner isLoading = false
 			commit("setIsLoading", false);
