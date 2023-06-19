@@ -1,15 +1,18 @@
 <template>
-	<nav>
-		<router-link to="/">Home</router-link> |
-		<router-link to="/shop">Shop</router-link> |
-		<router-link to="/login">Login</router-link> |
-		<router-link to="/user">Your account</router-link>
-	</nav>
-	<footer>
-		<NavBar />
-	</footer>
+	<div id="app-container">
+		<nav>
+			<router-link to="/">Home</router-link> |
+			<router-link to="/shop">Shop</router-link> |
+			<router-link to="/login">Login</router-link> |
+			<router-link to="/user">Your account</router-link>
+		</nav>
 
-	<router-view />
+		<router-view />
+
+		<footer>
+			<NavBar />
+		</footer>
+	</div>
 </template>
 
 <script lang="ts">
@@ -26,11 +29,17 @@ export default defineComponent({
 
 <style>
 #app {
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: #474647;
+}
+
+#app-container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 nav {
@@ -47,10 +56,7 @@ nav a.router-link-exact-active {
 }
 
 footer {
-	/* display: flex; */
-	position: absolute;
-	bottom: 0;
-	width: 100%;
+	margin-top: auto;
 	justify-content: space-between;
 }
 
