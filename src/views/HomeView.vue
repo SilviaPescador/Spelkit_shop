@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Spelkit Shop"/>
+    <Welcome msg="Welcome to Spelkit Shop"/>
     <img alt="spelkit e-commerce logo" src="../assets/logo.png">
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import Welcome from '@/components/Welcome.vue'; // @ is an alias to /src
 
 
 @Options({
   components: {
-    HelloWorld,
+    Welcome,
   },
 })
 export default class HomeView extends Vue {}
