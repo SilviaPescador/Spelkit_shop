@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ENDPOINT_PATH:string = "https://reqres.in/api/";
+const ENDPOINT_PATH = "https://reqres.in/api/";
 
 export default class RegisterService {
       async register(email:string, password:string) {

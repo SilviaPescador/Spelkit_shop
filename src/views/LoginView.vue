@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import AuthenticationService from "@/logic/AuthenticationService";
+import AuthenticationService from "@/services/AuthenticationServicee";
 
 export default defineComponent({
 	data: () => ({
