@@ -4,6 +4,7 @@ import { AxiosResponse } from "axios";
 import { ActionTree } from "vuex";
 import { IState } from "..";
 import { IProductsState } from "./state";
+import Swal from "sweetalert2";
 
 const actions: ActionTree<IProductsState, IState> = {
 	async fetchProducts({ commit }) {
@@ -17,7 +18,13 @@ const actions: ActionTree<IProductsState, IState> = {
 			// usamos la mutación para volcar los datos obtenidos en la variable del state users
 			commit("setProducts", data);
 		} catch (error) {
-			console.log(error);
+			console.error(error);
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Something went wrong!: ' + error,
+				footer: '<a href="">Why do I have this issue?</a>'
+			    })
 		} finally {
 			// usamos la mutación para poner isLoading = false
 			commit("setIsLoading", false);
@@ -35,7 +42,13 @@ const actions: ActionTree<IProductsState, IState> = {
 			commit("setSelectedProduct", data);
 		}
 		catch (error) {
-			console.log(error);
+			console.error(error);
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Something went wrong!: ' + error,
+				footer: '<a href="">Why do I have this issue?</a>'
+			    })
 		} finally {
 			// usamos la mutación para poner isLoading = false
 			commit("setIsLoading", false);

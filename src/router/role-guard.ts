@@ -2,8 +2,7 @@ import { RouteLocation } from "vue-router";
 import Swal from 'sweetalert2'
 
 const haveRoleGuard = (to: RouteLocation, from: RouteLocation, next: any) => {
-	console.log(to, from, next);
-	// const userRole = localStorage.getItem("userRole");
+	// console.log(to, from, next);
 	const token = localStorage.getItem("token");
 
 	if (token) {

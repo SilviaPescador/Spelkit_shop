@@ -32,19 +32,7 @@ export default defineComponent({
 		},
 	},
 	emits: ["goDetail"],
-	// setup(props) {
-	// 	console.log("ProductItem props", props);
-	// },
 });
 </script>
 
-<style scoped>
 
-/* .product-avatar {
-	width: 100%;
-}
-.product-avatar > img {
-	width: 100%;
-	height: auto;
-} */
-</style>

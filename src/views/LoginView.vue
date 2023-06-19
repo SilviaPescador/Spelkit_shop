@@ -45,7 +45,6 @@ export default defineComponent({
 			try {
 				const authService = new AuthenticationService();
 				const response = await authService.login(this.email, this.password);
-				console.log(response);
 				if (response.data.token) {
 					await Swal.fire({
 						position: "top-end",
@@ -57,16 +56,20 @@ export default defineComponent({
 					localStorage.setItem("token", response.data.token);
 					this.$router.push("/");
 				} else {
-					// Mostrar un mensaje de error
-					console.log("Ooops, there was an error in authentication process.");
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "Ooops, there was an error in authentication process.",
+					});
+
 					this.error = true;
 				}
 			} catch (error) {
-				console.log(error);
+				console.error(error);
 				Swal.fire({
 					icon: "error",
 					title: "Oops...",
-					text: "Something went wrong!",
+					text: "Something went wrong!" + error,
 				});
 				this.error = true;
 			}

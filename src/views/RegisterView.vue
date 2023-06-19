@@ -65,11 +65,11 @@ export default defineComponent({
 					this.error = true;
 				}
 			} catch (error) {
-        Swal.fire({
-          icon: "error",
-          text: "Something went wrong",  
-        })
-				console.log("Ooops, something went wrong.");
+				console.error(error);
+				Swal.fire({
+					icon: "error",
+					text: "Something went wrong" + error,
+				});
 				this.error = true;
 			}
 		},
