@@ -81,9 +81,11 @@ export default defineComponent({
 .register {
 	padding: 2rem;
 }
+
 .title {
 	text-align: center;
 }
+
 .form {
 	margin: 3rem auto;
 	display: flex;
@@ -97,14 +99,17 @@ export default defineComponent({
 	padding: 40px;
 	box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
 }
+
 .form-label {
 	margin-top: 2rem;
 	color: white;
 	margin-bottom: 0.5rem;
 }
+
 .form-label:first-of-type {
 	margin-top: 0rem;
 }
+
 .form-input {
 	padding: 10px 15px;
 	background: none;
@@ -112,10 +117,12 @@ export default defineComponent({
 	border: 1px solid white;
 	color: white;
 }
+
 .form-input:focus {
 	outline: 0;
 	border-color: #1ab188;
 }
+
 .form-submit {
 	background: #1ab188;
 	border: none;
@@ -125,6 +132,7 @@ export default defineComponent({
 	cursor: pointer;
 	transition: background 0.2s;
 }
+
 .form-submit:hover {
 	background: #0b9185;
 }

@@ -1,6 +1,7 @@
 # spelkit_shop
 
 _ACTUALIZACIÓN!_ 
+- Se está trabanajando actualmente en refactorizar el código unificándolo a COMPOSITION API.
 - Actualmente se ha redefinido el código y los estilos, además de modificar la API de cara a poder mostrar la relación de productos de la tienda.
 - El proceso de Registro y Login es forzado con la api `Regres.in`
 

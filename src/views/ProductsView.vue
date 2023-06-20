@@ -12,36 +12,23 @@
 	</div>
 </template>
 
-<script lang="ts">
-import useProducts from "@/composables/useProducts";
-import { defineComponent, onMounted, computed } from "vue";
+<script setup lang="ts">
 import { Product } from "@/models/product";
+import useProducts from "@/composables/useProducts";
+import { computed } from "vue";
 import { useRouter } from "vue-router";
 import ProductItem from "@/components/ProductItem.vue";
 
-export default defineComponent({
-	name: "ProductsView",
-	components: {
-		ProductItem,
-	},
-	setup() {
-		const { products, isLoading, fetchProducts } = useProducts();
-		const router = useRouter();
+const { products, isLoading, fetchProducts } = useProducts();
+const router = useRouter();
 
-		onMounted(() => {
-			fetchProducts();
-		})
+fetchProducts();
 
-		const fetchedProducts = computed(() => products.value.products);
+const fetchedProducts = computed(() => products.value.products);
 
-		return {
-			fetchedProducts,
-			isLoading,
-			goDetail: (product: Product) =>
-				router.push({ name: "detail", params: { id: product.id } }),
-		};
-	},
-});
+const goDetail = (product: Product) => {
+	router.push({ name: "detail", params: { id: product.id } });
+};
 </script>
 
 <style scoped>
