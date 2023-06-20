@@ -1,5 +1,5 @@
 <template>
-	<div class="home">
+	<div class="home container-fluid mb-3">
 		<div v-if="isLoading">Cargando...</div>
 		<div class="product-list d-flex flex-wrap justify-content-center" v-else>
 			<ProductItem

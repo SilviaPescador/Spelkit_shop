@@ -1,5 +1,5 @@
 <template>
-	<div v-if="!isLoading">
+	<div v-if="!isLoading" class="container mb-3">
 		<div class="d-flex align-items-center flex-column">
 			<img :src="product.thumbnail" class="w-25 img-thumbnail rounded rounded-5 shadow m-2" />
 			<h1>Detalles de {{ product.title }}</h1>
